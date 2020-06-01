@@ -4,9 +4,12 @@ import MovieList from "./Coponents/MovieList"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
+
+
 const apiKey = process.env.REACT_APP_APIKEY;
 function App() {
   let [movieList, setMovieList] = useState(null);
+
 
   const getNowPlayingMovie = async (button) => {
     let url = `https://api.themoviedb.org/3/movie/${button}?api_key=${apiKey}&language=en-US&page=1`;
@@ -20,6 +23,9 @@ function App() {
   useEffect(() => {
     getNowPlayingMovie("now_playing");
   }, []);
+
+
+
 
   if (movieList === null) {
     return <div>loading</div>;
@@ -70,6 +76,9 @@ function App() {
         </div>
         <div>
           <MovieList movieList={movieList} />
+
+
+
         </div>
 
         <div>
